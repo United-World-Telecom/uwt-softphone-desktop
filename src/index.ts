@@ -1,4 +1,5 @@
 import { app, BrowserWindow } from 'electron';
+import { updater } from 'update-electron-app';
 import * as path from 'path';
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
@@ -42,3 +43,7 @@ app.on('activate', () => {
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and import them here.
+updater({
+  repo: 'United-World-Telecom/uwt-softphone-desktop',
+  updateInterval: '5 minutes'
+});

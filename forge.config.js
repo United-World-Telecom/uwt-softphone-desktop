@@ -6,11 +6,6 @@ fs.readFileSync('.env').toString().split('\n').forEach(kvp => {
   process.env[key] = value;
 });
 
-require('update-electron-app')({
-  repo: 'United-World-Telecom/uwt-softphone-desktop',
-  updateInterval: '5 minutes'
-});
-
 module.exports = {
   packagerConfig: {},
   makers: [
