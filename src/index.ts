@@ -1,5 +1,4 @@
 import { app, BrowserWindow } from 'electron';
-import { updater } from 'update-electron-app';
 import * as path from 'path';
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
@@ -12,7 +11,8 @@ const createWindow = (): void => {
   const mainWindow = new BrowserWindow({
     width: 480,
     height: 860,
-    resizable: false
+    resizable: false,
+    icon: path.join(__dirname, '../src/web-dist/favicon.ico')
   });
 
   // and load the index.html of the app.
@@ -43,7 +43,8 @@ app.on('activate', () => {
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and import them here.
-updater({
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+require('update-electron-app')({
   repo: 'United-World-Telecom/uwt-softphone-desktop',
   updateInterval: '5 minutes'
 });
