@@ -1,5 +1,6 @@
 /* eslint-disable */
 const fs = require('fs');
+const path = require('path');
 
 fs.readFileSync('.env').toString().split('\n').forEach(kvp => {
   const [ key, value ] = kvp.split('=');
@@ -7,12 +8,24 @@ fs.readFileSync('.env').toString().split('\n').forEach(kvp => {
 });
 
 module.exports = {
-  packagerConfig: {},
+  packagerConfig: {
+    icon: path.join(__dirname, "src/assets", "gcf.ico"),
+    ignore: [
+      /\.ts$/,
+      /(\/|\\)\..*$/,
+      /\.js\.map$/,
+      'forge.config.js',
+      'package-lock.json',
+      'tsconfig.json'
+    ]
+  },
   makers: [
     {
       name: "@electron-forge/maker-squirrel",
       config: {
-        name: "uwt_softphone"
+        name: "uwt_softphone",
+        iconUrl: path.join(__dirname, "src/assets", "gcf.ico"),
+        setupIcon: path.join(__dirname, "src/assets", "gcf.ico")
       }
     },
     {

@@ -1,14 +1,14 @@
 {
   "name": "uwt-softphone",
-  "productName": "uwt-softphone",
-  "version": "0.9.1",
-  "description": "Desktop build for WebRTC Softphone",
+  "productName": "GCF Dialer",
+  "version": "0.9.0",
+  "description": "GCF Dialer - https://www.globalcallforwarding.com/",
   "main": "dist/index.js",
   "scripts": {
     "start": "tsc && electron-forge start",
-    "package": "electron-forge package",
-    "make": "electron-forge make",
-    "publish": "electron-forge publish",
+    "package": "tsc && electron-forge package",
+    "make": "tsc && electron-forge make",
+    "publish": "tsc && electron-forge publish",
     "lint": "eslint --ext .ts ."
   },
   "keywords": [],
@@ -34,7 +34,7 @@
     "typescript": "^3.9.7"
   },
   "dependencies": {
-    "electron-squirrel-startup": "^1.0.0",
-    "update-electron-app": "^1.5.0"
+    "electron-is-dev": "^1.2.0",
+    "electron-squirrel-startup": "^1.0.0"
   }
 }
