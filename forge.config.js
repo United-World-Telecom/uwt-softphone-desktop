@@ -9,6 +9,7 @@ fs.readFileSync('.env').toString().split('\n').forEach(kvp => {
 
 module.exports = {
   packagerConfig: {
+    asar: true,
     icon: path.join(__dirname, "src/assets", "gcf.ico"),
     ignore: [
       /\.ts$/,
